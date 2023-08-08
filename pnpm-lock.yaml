@@ -6,40 +6,40 @@ settings:
 
 dependencies:
   '@types/node':
-    specifier: 20.4.9
+    specifier: ^20.4.9
     version: 20.4.9
   '@types/react':
-    specifier: 18.2.19
+    specifier: ^18.2.19
     version: 18.2.19
   '@types/react-dom':
-    specifier: 18.2.7
+    specifier: ^18.2.7
     version: 18.2.7
   autoprefixer:
-    specifier: 10.4.14
+    specifier: ^10.4.14
     version: 10.4.14(postcss@8.4.27)
   eslint:
-    specifier: 8.46.0
+    specifier: ^8.46.0
     version: 8.46.0
   eslint-config-next:
-    specifier: 13.4.13
+    specifier: ^13.4.13
     version: 13.4.13(eslint@8.46.0)(typescript@5.1.6)
   next:
-    specifier: 13.4.13
+    specifier: ^13.4.13
     version: 13.4.13(react-dom@18.2.0)(react@18.2.0)
   postcss:
-    specifier: 8.4.27
+    specifier: ^8.4.27
     version: 8.4.27
   react:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0
   react-dom:
-    specifier: 18.2.0
+    specifier: ^18.2.0
     version: 18.2.0(react@18.2.0)
   tailwindcss:
-    specifier: 3.3.3
+    specifier: ^3.3.3
     version: 3.3.3
   typescript:
-    specifier: 5.1.6
+    specifier: ^5.1.6
     version: 5.1.6
 
 packages:
