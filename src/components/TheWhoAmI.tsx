@@ -5,7 +5,10 @@ import Image from 'next/image'
 
 export default function TheWhoAmI() {
   return (
-    <section className="flex min-h-[calc(100svh-var(--top-nav-bar-height))] flex-col items-center justify-center gap-6">
+    <section
+      className="flex min-h-[calc(100svh-var(--top-nav-bar-height))] flex-col items-center justify-center gap-6"
+      id="home"
+    >
       <Image
         src={me}
         alt="Yo"
