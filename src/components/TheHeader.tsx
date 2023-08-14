@@ -46,20 +46,30 @@ export default function TheHeader() {
 
   return (
     <header className="fixed left-0 top-0 h-[var(--top-nav-bar-height)] w-full backdrop-blur-md">
-      <div className="mx-auto flex h-full max-w-screen-lg items-center justify-between px-4 lg:px-0">
-        <span>Welcome!</span>
+      <div className="mx-auto flex h-full max-w-screen-lg items-center justify-end px-4 lg:px-0">
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className=" text-text"
+          className=" text-text lg:hidden"
           aria-label="Open Menu"
         >
           <MenuIcon></MenuIcon>
         </button>
+        <nav>
+          <ul className="hidden gap-5 lg:flex">
+            {navItems.map((item) => (
+              <motion.li whileHover={{ scale: 1.1 }} key={item.name}>
+                <a className="text-sm" href={item.href}>
+                  {item.name}
+                </a>
+              </motion.li>
+            ))}
+          </ul>
+        </nav>
       </div>
       <motion.nav
         animate={isOpen ? 'open' : 'closed'}
         variants={navVariants}
-        className="fixed right-0 top-0 h-[100svh] bg-background p-12"
+        className="fixed right-0 top-0 h-[100svh] bg-background p-12 lg:hidden"
       >
         <motion.ul variants={ulVarians} className="space-y-6">
           {navItems.map((item) => (
