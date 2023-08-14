@@ -1,0 +1,16 @@
+.fade-enter {
+  @apply opacity-0;
+}
+.fade-exit {
+  @apply opacity-100;
+}
+.fade-enter-active {
+  @apply opacity-100;
+}
+.fade-exit-active {
+  @apply opacity-0;
+}
+.fade-enter-active,
+.fade-exit-active {
+  @apply transition-opacity duration-1000;
+}
