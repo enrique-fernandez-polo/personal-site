@@ -14,6 +14,7 @@ export default function TheWhoAmI() {
         alt="Yo"
         width={200}
         className="rounded-full border bg-background"
+        priority
       ></Image>
       <SocialIcons></SocialIcons>
       <p className="text-lg">Hello there! </p>
