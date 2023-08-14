@@ -9,6 +9,7 @@ import { Suspense } from 'react'
 const montserrat = Montserrat({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.enriquefernandezpolo.com'),
   authors: [
     {
       name: 'Enrique Fernández-Polo Puertas',
