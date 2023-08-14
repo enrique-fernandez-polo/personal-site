@@ -1,24 +1,8 @@
 'use client'
 
+import MenuIcon from './icons/MenuIcon'
 import { motion } from 'framer-motion'
-import { SVGProps, useState } from 'react'
-
-export function RiMenuFill(props: SVGProps<SVGSVGElement>) {
-  return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      width="1em"
-      height="1em"
-      viewBox="0 0 24 24"
-      {...props}
-    >
-      <path
-        fill="currentColor"
-        d="M3 4h18v2H3V4Zm0 7h18v2H3v-2Zm0 7h18v2H3v-2Z"
-      ></path>
-    </svg>
-  )
-}
+import { useState } from 'react'
 
 const navItems = [
   { name: 'Home', href: '#home' },
@@ -69,7 +53,7 @@ export default function TheHeader() {
           className=" text-text"
           aria-label="Open Menu"
         >
-          <RiMenuFill></RiMenuFill>
+          <MenuIcon></MenuIcon>
         </button>
       </div>
       <motion.nav
