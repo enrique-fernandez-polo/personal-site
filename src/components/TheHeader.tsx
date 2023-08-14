@@ -48,7 +48,11 @@ export default function TheHeader() {
     <header className="fixed left-0 top-0 h-[var(--top-nav-bar-height)] w-full backdrop-blur-md">
       <div className="mx-auto flex h-full max-w-screen-lg items-center justify-between px-4 lg:px-0">
         <span>Welcome!</span>
-        <button onClick={() => setIsOpen(!isOpen)} className=" text-text">
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className=" text-text"
+          aria-label="Open Menu"
+        >
           <RiMenuFill></RiMenuFill>
         </button>
       </div>

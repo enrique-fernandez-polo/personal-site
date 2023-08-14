@@ -40,6 +40,7 @@ export default function SocialIcons() {
           href={item.href}
           target="_blank"
           className="inline-block rounded-full border-2 border-red-600 p-2 transition-colors hover:bg-red-600"
+          aria-label={`Link to my social media ${item.key}`}
         >
           <SocialIcon>
             <item.icon></item.icon>
