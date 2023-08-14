@@ -1,5 +1,6 @@
 'use client'
 
+import { motion, AnimatePresence } from 'framer-motion'
 import { useEffect, useState } from 'react'
 
 interface RotatingQuotesProps {
@@ -20,9 +21,18 @@ export default function RotatingQuotes({ quotes }: RotatingQuotesProps) {
   }, [quoteIndex, quotes])
 
   return (
-    <blockquote className="flex h-16 flex-col items-center justify-center text-center">
-      <p className="text-sm">{quotes.at(quoteIndex)?.quote}</p>
-      <p className="text-xs text-white/50">{quotes.at(quoteIndex)?.author}</p>
-    </blockquote>
+    <AnimatePresence mode="wait">
+      <motion.blockquote
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        exit={{ opacity: 0 }}
+        key={quoteIndex}
+        transition={{ duration: 1 }}
+        className="flex h-16 flex-col items-center justify-center text-center"
+      >
+        <p className="text-sm">{quotes.at(quoteIndex)?.quote}</p>
+        <p className="text-xs text-white/50">{quotes.at(quoteIndex)?.author}</p>
+      </motion.blockquote>
+    </AnimatePresence>
   )
 }
