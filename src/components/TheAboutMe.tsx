@@ -20,7 +20,7 @@ export default function TheAboutMe() {
       id="about-me"
     >
       <p>
-        I&apos;m [Your Name], a digital innovator with a proven legacy in
+        Hello there! I&apos;m a digital innovator with a proven legacy in
         architecting cutting-edge solutions. From orchestrating rapid customer
         onboarding at Ninety Nine to steering agile tech squads at Glovo,
         I&apos;ve mastered the art of turning challenges into opportunities.
