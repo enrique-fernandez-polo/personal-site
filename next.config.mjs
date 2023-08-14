@@ -1,3 +1,4 @@
+import './src/env.mjs'
 import million from 'million/compiler'
 import unplugIcons from 'unplugin-icons/webpack'
 

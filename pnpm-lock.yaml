@@ -14,6 +14,9 @@ dependencies:
   '@svgr/plugin-jsx':
     specifier: ^8.0.1
     version: 8.0.1(@svgr/core@8.0.0)
+  '@t3-oss/env-nextjs':
+    specifier: ^0.6.0
+    version: 0.6.0(typescript@5.1.6)(zod@3.21.4)
   '@tailwindcss/typography':
     specifier: ^0.5.9
     version: 0.5.9(tailwindcss@3.3.3)
@@ -62,6 +65,9 @@ dependencies:
   postcss:
     specifier: ^8.4.27
     version: 8.4.27
+  posthog-js:
+    specifier: ^1.76.0
+    version: 1.76.0
   prettier:
     specifier: ^3.0.1
     version: 3.0.1
@@ -92,6 +98,9 @@ dependencies:
   usehooks-ts:
     specifier: ^2.9.1
     version: 2.9.1(react-dom@18.2.0)(react@18.2.0)
+  zod:
+    specifier: ^3.21.4
+    version: 3.21.4
 
 packages:
   /@aashutoshrathi/word-wrap@1.2.6:
@@ -996,6 +1005,33 @@ packages:
       }
     dependencies:
       tslib: 2.6.1
+    dev: false
+
+  /@t3-oss/env-core@0.6.0(typescript@5.1.6)(zod@3.21.4):
+    resolution:
+      {
+        integrity: sha512-3FkPAba069WRZVVab/sB1m3eSGn/rZeypx5k+sWEu1d+k0OQdRDnvFS+7MtxYgqVrwaRk3b7yVnX2dgSPVmWPQ==,
+      }
+    peerDependencies:
+      typescript: '>=4.7.2'
+      zod: ^3.0.0
+    dependencies:
+      typescript: 5.1.6
+      zod: 3.21.4
+    dev: false
+
+  /@t3-oss/env-nextjs@0.6.0(typescript@5.1.6)(zod@3.21.4):
+    resolution:
+      {
+        integrity: sha512-SpzcGNIbUYcQw4zPPFeRJqCC1560zL7QmB0puIqOnuCsmykPkqHPX+n9CNZLXVQerboHzfvb7Kd+jAdouk72Vw==,
+      }
+    peerDependencies:
+      typescript: '>=4.7.2'
+      zod: ^3.0.0
+    dependencies:
+      '@t3-oss/env-core': 0.6.0(typescript@5.1.6)(zod@3.21.4)
+      typescript: 5.1.6
+      zod: 3.21.4
     dev: false
 
   /@tailwindcss/typography@0.5.9(tailwindcss@3.3.3):
@@ -2377,6 +2413,13 @@ packages:
       }
     dependencies:
       reusify: 1.0.4
+    dev: false
+
+  /fflate@0.4.8:
+    resolution:
+      {
+        integrity: sha512-FJqqoDBR00Mdj9ppamLa/Y7vxm+PRmNWA67N846RvsoYVMKB4q3y/de5PA7gUmRMYK/8CMz2GDZQmCRN1wBcWA==,
+      }
     dev: false
 
   /file-entry-cache@6.0.1:
@@ -3831,6 +3874,15 @@ packages:
       nanoid: 3.3.6
       picocolors: 1.0.0
       source-map-js: 1.0.2
+    dev: false
+
+  /posthog-js@1.76.0:
+    resolution:
+      {
+        integrity: sha512-C/+M+uVQ+CAEUz0ZAENMobw0fYcXGNomUXd8irelT7cQ9fsDSRgfyF5wwqaX0UXcIBD+iFXTOtK93T8NnFODyg==,
+      }
+    dependencies:
+      fflate: 0.4.8
     dev: false
 
   /prelude-ls@1.2.1:
