@@ -2,6 +2,7 @@ import './globals.css'
 import { PHProvider, PostHogPageview } from './providers'
 import TheFooter from '@/components/TheFooter'
 import TheHeader from '@/components/TheHeader'
+import { Analytics } from '@vercel/analytics/react'
 import type { Metadata } from 'next'
 import { Montserrat } from 'next/font/google'
 import { Suspense } from 'react'
@@ -71,6 +72,7 @@ export default function RootLayout({
         >
           <TheHeader></TheHeader>
           {children}
+          <Analytics />
           <TheFooter></TheFooter>
         </body>
       </PHProvider>
