@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://enriquefernandezpolo.com
+
+# Sitemaps
+Sitemap: https://enriquefernandezpolo.com/sitemap.xml
