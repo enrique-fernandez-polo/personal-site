@@ -1,4 +1,5 @@
 import { defineDocumentType, makeSource } from 'contentlayer/source-files'
+import highlight from 'rehype-highlight'
 
 const Post = defineDocumentType(() => ({
   name: 'Post',
@@ -15,6 +16,11 @@ const Post = defineDocumentType(() => ({
       description: 'The description of the post',
       required: true,
     },
+    mainImage: {
+      type: 'string',
+      description: 'The description of the post',
+      required: true,
+    },
     date: {
       type: 'date',
       description: 'The date of the post',
@@ -26,4 +32,7 @@ const Post = defineDocumentType(() => ({
 export default makeSource({
   contentDirPath: 'posts',
   documentTypes: [Post],
+  mdx: {
+    rehypePlugins: [highlight],
+  },
 })

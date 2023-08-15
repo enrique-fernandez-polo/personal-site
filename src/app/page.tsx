@@ -1,5 +1,6 @@
 import TheAboutMe from '@/components/TheAboutMe'
 import TheExperience from '@/components/TheExperience'
+import TheLastPosts from '@/components/TheLastPosts'
 import TheWhoAmI from '@/components/TheWhoAmI'
 import { Metadata } from 'next'
 
@@ -14,6 +15,7 @@ export default function Home() {
       <TheWhoAmI></TheWhoAmI>
       <TheAboutMe></TheAboutMe>
       <TheExperience></TheExperience>
+      <TheLastPosts></TheLastPosts>
     </main>
   )
 }

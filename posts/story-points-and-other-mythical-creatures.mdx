@@ -1,0 +1,86 @@
+---
+title: 'Story points and other mythical creatures'
+date: 2022-05-15
+description: "Story points is the most common unit used in agile software development. Let's see where they come from"
+mainImage: '/blog/01/00.jpeg'
+type: Post
+---
+
+I have mixed opinions around story points. The other day I came across this picture, and I couldn't resist writing this
+article.
+
+<Image
+  src="/blog/01/00.jpeg"
+  alt="Relation between story points and time to get the user story done"
+  width={4096}
+  height={3105}
+/>
+
+Here is the [Twitter thread](https://twitter.com/allenholub/status/1524765566426173440)
+by [Allen Holub](https://twitter.com/allenholub). I think the message is clear. **If you assign a time value
+to a story point, you will have a hard time.** If your team is fantastic, and you estimate every user story
+perfectly, even worse. You will set clear expectations with the stakeholders and fail.
+
+Let's dig into the origin of story points.
+
+## Story points. Where do they come from?
+
+All fingers point to [Ron Jeffries](https://twitter.com/ronjeffries)
+. [Here](https://ronjeffries.com/articles/019-01ff/story-points/Index.html) he explains how story points were created.
+Long story short: story points are ideal workdays plus a load factor.
+
+> I like to say that I may have invented story points, and if I did, I'm sorry now.
+>
+> <cite>&mdash; [Ron Jeffries](https://twitter.com/ronjeffries)</cite>
+
+Management was completely lost. It looked like this: _
+We have no idea how long it takes to implement; here is some number you can play with_. And you know what?
+**We developers do not know how long it takes to implement a story many times.**
+
+## What is a story point?
+
+Let's have a look at [what Atlassian says](https://www.atlassian.com/agile/project-management/estimation) about story
+points.
+
+> Teams assign story points relative to work complexity, the amount of work, and risk or uncertainty.
+>
+> <cite>&mdash; [Dan Radigan](https://twitter.com/danradigan)</cite>
+
+Every time I start working with a new team, I make sure we all agree on the meaning of a story point. Sometimes we focus
+on
+complexity, or dependencies, or unknowns. The definition is ambiguous and can change a lot from one team to
+another. Some companies try to avoid this by creating a standard definition of a story point, or even worse, one unique
+agile way of
+working.
+
+A question pops into my mind. What is not a story point? **It is not a unit to measure how
+long it takes to implement a user story.** Does this conversation sound familiar?
+
+> PM: Could you give me a rough estimation of this feature?
+>
+> EM: After some refinement, we find out the feature is about 80 story points.
+>
+> PM: Based on our velocity, it will take two sprints. We will finish in a month.
+
+At first glance, story points may not look like a time unit in your organization, but if you combine story points,
+velocity, and sprints, then you are using them as a time unit.
+
+<Image
+  src="/blog/01/01.jpg"
+  alt="Story points are not time units"
+  width={888}
+  height={499}
+/>
+
+Story points, for me, are a tool with different purposes.
+
+- **Identify lack of shared team knowledge**. When estimations differ a lot between team members probably someone is
+  missing
+  something. A database feature, a pattern already applied in another service, a tool for the task or knowledge from
+  errors in the past. The
+  more discrepancies you get, the less mature the team is.
+- **Identify 'worthless' stories**. Sometimes, little features imply massive changes. The story points are pretty more
+  significant than the value provided to the clients. How do you compare two abstract units like story points and value?
+  That's up to your team!
+- **Less stressful unit**. Team morale is easier to destroy measuring in hours rather than story points. The team
+  estimates a user story in 8 hours, and it takes you 10 to complete. You suck.
