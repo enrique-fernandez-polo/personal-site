@@ -5,9 +5,9 @@ import { motion } from 'framer-motion'
 import { useState } from 'react'
 
 const navItems = [
-  { name: 'Home', href: '#home' },
-  { name: 'About me', href: '#about-me' },
-  { name: 'Experience', href: '#experience' },
+  { name: 'Home', href: '/#home' },
+  { name: 'About me', href: '/#about-me' },
+  { name: 'Experience', href: '/#experience' },
 ]
 
 const navVariants = {

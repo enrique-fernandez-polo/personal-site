@@ -1,0 +1,157 @@
+---
+title: 'Outbox pattern with MongoDB Atlas and AWS EventBridge'
+date: 2020-06-30
+type: Post
+---
+
+Event-oriented distributed systems are tricky. We have to make sure that we publish
+what has already happened. In a microservice, the term _“happened”_ means that all the business logic has run, every piece
+of modified data is safely persisted, and there is no risk of losing it. **The event publishing and the database update
+should be atomic.**
+
+> Never publish an event before the database transaction has committed
+
+How can we make sure that we are going to publish our events after the database is updated? [The outbox pattern](https://microservices.io/patterns/data/transactional-outbox.html) to the
+rescue!
+
+## Outbox pattern
+
+The concept behind the outbox pattern is pretty simple: store the database changes and the events you want to publish in
+the same transaction. Every service has an outbox collection (we are talking about MongoDB) where it persists the events
+that want to publish.
+
+The other required pieces in this pattern are listening to the new events and publishing them to the event bus. MongoDB
+Atlas makes it really easy with the concept of triggers built on top of MongoDB change streams.
+
+## Listening for new events in MongoDB Atlas
+
+<Image
+  src="/blog/00/00.jpg"
+  alt="...I do have a very particular set of requirements..."
+  width={550}
+  height={400}
+/>
+
+We are going to add a new trigger to our MongoDB database.
+
+<Image
+  src="/blog/00/01.png"
+  alt="MongoDB trigger listening to the outbox collection and sending the vents to AWS EventBridge"
+  width={1133}
+  height={1827}
+/>
+
+There are some little particularities to make sure this works properly. We are only interested in new events inserted,
+we want to get the entire document in the event, and we want to send them to AWS EventBridge
+
+> Events are immutable and never should be modified.
+
+At this point, we are ready to move to the AWS console to accept the integration.
+
+## Route the received events in AWS EventBridge
+
+EventBridge rocks! Schema registry, event archiving, and replay! What else!
+
+In the Partner event sources, you will find a new request to associate the MongoDB trigger with an EventBridge event
+bus.
+
+<Image
+  src="/blog/00/02.png"
+  alt="Create a new event bus and associate the MongoDB change stream"
+  width={1333}
+  height={491}
+/>
+
+Now we are ready to tell EventBridge how we want to route our events. For the sake of simplicity, we are just going to
+use an SQS queue to check that everything is set in place.
+
+Just create a new SQS queue with the defaults provided by the console, how SQS works is out of the scope of this
+article. In our example, our queue is called test-mongodb-eventbridge-integration. Let’s create a new rule in our event
+bus.
+
+<Image
+  src="/blog/00/03.png"
+  alt="Send the events to the SQS queue without any transformation"
+  width={879}
+  height={2216}
+/>
+
+The rule is self-explanatory. AWS already knows how MongoDB events look like so the pattern will be created for us. We
+have to select the proper event bus and the proper SQS queue and we are ready to test the rule.
+
+Now we can insert a document in MongoDB and check if we are getting an event in SQS. I am going to use the Atlas console
+to manually insert a simple dummy document.
+
+<Image
+  src="/blog/00/04.png"
+  alt="Let’s keep it simple and check that everything is set properly"
+  width={630}
+  height={320}
+/>
+
+Go to the AWS console, pool for messages on the SQS queue and…. boom! We got a message! But wait… this message is so
+ugly…
+
+```json
+{
+  "version": "0",
+  "id": "6ea00c1d-132b-c367–878d-f2090dc36aa2",
+  "detail-type": "MongoDB Database Trigger for clients.clients_outbox",
+  "source": "aws.partner/mongodb.com/stitch.trigger/{what_ever}",
+  "account": "{what_ever}",
+  "time": "2021–06–30T10:48:36Z",
+  "region": "eu-west-1",
+  "resources": [
+    "arn:aws:events:eu-west-1::event-source/aws.partner/mongodb.com/stitch.trigger/{what_ever}"
+  ],
+  "detail": {
+    "_id": {
+      "_data": "8260DC4C04000000012B022C0100296E5A100465A71A19A9C1418EBFAE336B10B53DD746645F6964006460DC4BB7D482484FD788D36B0004"
+    },
+    "operationType": "insert",
+    "clusterTime": {
+      "T": 1625050116,
+      "I": 1
+    },
+    "fullDocument": {
+      "_id": "60dc4bb7d482484fd788d36b",
+      "test": "some test"
+    },
+    "ns": {
+      "db": "clients",
+      "coll": "clients_outbox"
+    },
+    "documentKey": {
+      "_id": "60dc4bb7d482484fd788d36b"
+    }
+  }
+}
+```
+
+The document is enriched with some metadata from the MongoDB operation that inserted the document and the integration with EventBridge. We have to modify our rule and select the key that we want to send to SQS.
+
+<Image
+  src="/blog/00/05.png"
+  alt="Only send the document inserted"
+  width={485}
+  height={248}
+/>
+
+Now if we test the rule again we will a much nicer JSON
+
+```json
+{
+  "_id": "60dc4e2bd482484fd788d36d",
+  "test": "some test"
+}
+```
+
+# What’s next
+
+We have seen how to configure MongoDB Atlas with a trigger to send events to AWS EventBridge and how to configure EventBridge with a rule to send those events to our desired target, in this case, an SQS queue.
+
+- **Use infrastructure as code.** The console makes it quite easy to test any PoC but it’s not the proper way to build things. Terraform, pulumi, and AWS CDK help to create more robust and reproducible systems.
+- **More fined tuned routing.** What if I want to use multiple queues with different purposes? We can play around with the event matching pattern and create more specific rules. For example, add a topic field to every event and send to a specific SNS topic.
+- **Adopt an event format standard.** Make sure that every event has the same structure in order to keep all the consumers more consistent. We are adopting CloudEvents.
+- **MongoDB cleanup.** We are storing every event in MongoDB, at some point, the collection is going to be huge. We have to implement a process to do some cleanup of the collection. Do not feel tempted to use capped collections, transactions are not supported.
+- **Event archiving.** EventBridge facilities event archiving in S3 and event replay. Makes it so much easier to implement new services and perform the all-famous backfillings.
