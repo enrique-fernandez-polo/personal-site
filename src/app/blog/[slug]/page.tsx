@@ -14,7 +14,7 @@ export const generateMetadata = ({
   params: { slug: string }
 }): Metadata => {
   const post = allPosts.find((post) => post._raw.flattenedPath === params.slug)
-  return { title: post?.title }
+  return { title: post?.title, description: post?.description }
 }
 
 export default function Page({ params }: { params: { slug: string } }) {
