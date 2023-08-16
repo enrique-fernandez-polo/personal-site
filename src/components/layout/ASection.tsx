@@ -18,7 +18,7 @@ export default function ASection({
   ...otherProps
 }: ASectionProps) {
   return (
-    <section className="space-y-12 py-20" {...otherProps}>
+    <section className="space-y-4 py-12" {...otherProps}>
       <h3 className="text-center font-semibold text-[#177A8E]">{subtitle}</h3>
       <h2 className="text-center text-3xl font-bold ">{title}</h2>
       {quotes.length > 0 && <RotatingQuotes quotes={quotes}></RotatingQuotes>}
