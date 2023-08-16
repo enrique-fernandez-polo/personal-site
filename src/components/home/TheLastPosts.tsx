@@ -1,5 +1,6 @@
 import ASection from '../layout/ASection'
 import { allPosts } from 'contentlayer/generated'
+import { format, parseISO } from 'date-fns'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -40,6 +41,9 @@ export default function TheLastPosts() {
               ></Image>
             </div>
             <p>{post.description}</p>
+            <time dateTime={post.date} className="ml-auto text-xs">
+              {format(parseISO(post.date), 'LLLL d, yyyy')}
+            </time>
           </Link>
         ))}
       </div>

@@ -26,11 +26,9 @@ export default function Page({ params }: { params: { slug: string } }) {
 
   return (
     <article className="prose prose-invert px-6 sm:mx-auto">
-      <div>
-        <time dateTime={post.date}>
-          {format(parseISO(post.date), 'LLLL d, yyyy')}
-        </time>
-      </div>
+      <time dateTime={post.date}>
+        {format(parseISO(post.date), 'LLLL d, yyyy')}
+      </time>
       <h1>{post.title}</h1>
       <Content
         components={{
