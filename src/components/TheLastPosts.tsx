@@ -20,6 +20,7 @@ export default function TheLastPosts() {
       title="What do I like to talk about?"
       subtitle="LATEST POSTS"
       quotes={quotes}
+      id="last-posts"
     >
       <div className="flex flex-col gap-3 lg:flex-row">
         {allPosts.map((post) => (

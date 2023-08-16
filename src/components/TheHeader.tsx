@@ -8,6 +8,7 @@ const navItems = [
   { name: 'Home', href: '/#home' },
   { name: 'About me', href: '/#about-me' },
   { name: 'Experience', href: '/#experience' },
+  { name: 'Last Posts', href: '/#last-posts' },
 ]
 
 const navVariants = {
