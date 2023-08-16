@@ -31,15 +31,13 @@ export default function TheLastPosts() {
             className="flex flex-col gap-4 rounded-xl border border-white/10 p-4 backdrop-blur-md transition-all hover:scale-105 lg:basis-1/3"
           >
             <h1 className="flex-1 text-base font-bold">{post.title}</h1>
-            <div className="relative h-56 w-full">
-              <Image
-                className="mx-auto"
-                src={post.mainImage}
-                alt={post.description}
-                layout="fill"
-                objectFit="contain"
-              ></Image>
-            </div>
+            <Image
+              className="m-auto"
+              src={post.mainImage}
+              alt={post.description}
+              height={200}
+              width={200}
+            ></Image>
             <p>{post.description}</p>
             <time dateTime={post.date} className="ml-auto text-xs">
               {format(parseISO(post.date), 'LLLL d, yyyy')}
