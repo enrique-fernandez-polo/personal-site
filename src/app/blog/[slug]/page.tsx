@@ -25,7 +25,7 @@ export default function Page({ params }: { params: { slug: string } }) {
   const Content = getMDXComponent(post.body.code)
 
   return (
-    <article className="prose prose-invert mx-auto">
+    <article className="prose prose-invert px-6 sm:mx-auto">
       <div>
         <time dateTime={post.date}>
           {format(parseISO(post.date), 'LLLL d, yyyy')}
