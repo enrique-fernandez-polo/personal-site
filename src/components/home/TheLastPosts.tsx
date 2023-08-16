@@ -28,7 +28,7 @@ export default function TheLastPosts() {
           <Link
             href={`/blog/${post._raw.flattenedPath}`}
             key={post._id}
-            className="flex flex-col gap-2 rounded-xl border border-white/10 p-4 backdrop-blur-md transition-all hover:scale-105 lg:basis-1/3"
+            className="flex flex-col gap-4 rounded-xl border border-white/10 p-4 backdrop-blur-md transition-all hover:scale-105 lg:basis-1/3"
           >
             <h1 className="flex-1 text-base font-bold">{post.title}</h1>
             <div className="relative h-56 w-full">
