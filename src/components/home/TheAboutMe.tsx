@@ -1,4 +1,4 @@
-import ASection from './ASection'
+import ASection from '../layout/ASection'
 
 const quotes = [
   {

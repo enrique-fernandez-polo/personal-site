@@ -1,7 +1,7 @@
-import GitHubIcon from './icons/GitHubIcon'
-import LinkedInIcon from './icons/LinkedInIcon'
-import MailIcon from './icons/MailIcon'
-import TwitterIcon from './icons/TwitterIcon'
+import GitHubIcon from '../icons/GitHubIcon'
+import LinkedInIcon from '../icons/LinkedInIcon'
+import MailIcon from '../icons/MailIcon'
+import TwitterIcon from '../icons/TwitterIcon'
 import Link from 'next/link'
 
 const social = [

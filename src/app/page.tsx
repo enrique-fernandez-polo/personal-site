@@ -1,7 +1,7 @@
-import TheAboutMe from '@/components/TheAboutMe'
-import TheExperience from '@/components/TheExperience'
-import TheLastPosts from '@/components/TheLastPosts'
-import TheWhoAmI from '@/components/TheWhoAmI'
+import TheAboutMe from '@/components/home/TheAboutMe'
+import TheExperience from '@/components/home/TheExperience'
+import TheLastPosts from '@/components/home/TheLastPosts'
+import TheWhoAmI from '@/components/home/TheWhoAmI'
 import { Metadata } from 'next'
 
 export const metadata: Metadata = {

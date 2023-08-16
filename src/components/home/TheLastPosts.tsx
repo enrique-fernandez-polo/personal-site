@@ -1,4 +1,4 @@
-import ASection from './ASection'
+import ASection from '../layout/ASection'
 import { allPosts } from 'contentlayer/generated'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -27,9 +27,9 @@ export default function TheLastPosts() {
           <Link
             href={`/blog/${post._raw.flattenedPath}`}
             key={post._id}
-            className="space-y-2 rounded-xl border border-white/10 p-4 backdrop-blur-md transition-all hover:scale-105 lg:basis-1/3"
+            className="flex flex-col gap-2 rounded-xl border border-white/10 p-4 backdrop-blur-md transition-all hover:scale-105 lg:basis-1/3"
           >
-            <h1 className="text-base font-bold">{post.title}</h1>
+            <h1 className="flex-1 text-base font-bold">{post.title}</h1>
             <div className="relative h-56 w-full">
               <Image
                 className="mx-auto"

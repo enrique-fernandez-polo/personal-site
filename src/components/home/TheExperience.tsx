@@ -1,14 +1,14 @@
-import ASection from './ASection'
 import TheExperienceElement, {
   TheExperienceElementProps,
-} from './TheExperienceElement'
-import deloitteLogo from './logos/deloitte.png'
-import fintonicLogo from './logos/fintonic.png'
-import glovoLogo from './logos/glovo.png'
-import ingLogo from './logos/ing.png'
-import ninetynineLogo from './logos/ninetynine.png'
-import orangeBankLogo from './logos/orangebank.png'
-import zedLogo from './logos/zed.png'
+} from '@/components/home/TheExperienceElement'
+import ASection from '@/components/layout/ASection'
+import deloitteLogo from '@/components/logos/deloitte.png'
+import fintonicLogo from '@/components/logos/fintonic.png'
+import glovoLogo from '@/components/logos/glovo.png'
+import ingLogo from '@/components/logos/ing.png'
+import ninetynineLogo from '@/components/logos/ninetynine.png'
+import orangeBankLogo from '@/components/logos/orangebank.png'
+import zedLogo from '@/components/logos/zed.png'
 
 const experiences: TheExperienceElementProps[] = [
   {

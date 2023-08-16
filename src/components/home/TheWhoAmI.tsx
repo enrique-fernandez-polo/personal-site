@@ -1,6 +1,6 @@
-import SocialIcons from './SocialIcons'
-import me from './yo.png'
-import TheRoles from '@/components/TheRoles'
+import TheRoles from '@/components/home/TheRoles'
+import me from '@/components/home/yo.png'
+import SocialIcons from '@/components/layout/SocialIcons'
 import Image from 'next/image'
 
 export default function TheWhoAmI() {
