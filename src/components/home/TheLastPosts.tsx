@@ -23,7 +23,7 @@ export default function TheLastPosts() {
       quotes={quotes}
       id="last-posts"
     >
-      <div className="flex flex-col gap-3 lg:flex-row">
+      <div className="flex flex-col gap-4 lg:flex-row">
         {allPosts.map((post) => (
           <Link
             href={`/blog/${post._raw.flattenedPath}`}
